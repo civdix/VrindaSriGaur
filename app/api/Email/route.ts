@@ -60,7 +60,10 @@ export async function POST(request: NextRequest) {
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Message:", message);
-sendMail(name, message, email);
+const result = await sendMail(name, message, email);
+if(result === false) {
+  return NextResponse.json({ success: false, message: "Failed to send email." }, { status: 500 });
+} 
     return NextResponse.json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     console.error("Error sending email:", error);
