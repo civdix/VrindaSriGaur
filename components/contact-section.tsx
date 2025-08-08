@@ -27,6 +27,27 @@ export default function ContactSection() {
 
   async function onSubmit(data: FormData) {
     // Demo: simulate server action
+    console.log("Form submitted:", data)
+        if (!data.name || !data.email || !data.message) {
+      setSent("Please fill in all fields correctly.")
+      return
+    }
+    const respo = await fetch('/api/Email', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+  const result = await respo.json()
+    if (!result.success) {
+      setSent("Failed to send message. Please try again later.")
+      return
+    }
+
+    setSent(null)
+    console.log("Form submitted:", data)
+
     await new Promise((r) => setTimeout(r, 800))
     setSent(`Thanks ${data.name}! I’ll get back to you at ${data.email}.`)
     reset()
@@ -43,8 +64,8 @@ export default function ContactSection() {
               <Input id="name" {...register("name")} />
               {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+            <div className="grid gap-2"> 
+              <Label htmlFor="email">Email</Label> 
               <Input id="email" type="email" {...register("email")} />
               {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
             </div>
@@ -61,7 +82,8 @@ export default function ContactSection() {
 
           <div className="space-y-3 text-sm">
             <p><strong>Email:</strong> <a className="underline" href="mailto:vrinaxz@gmail.com">vrinaxz@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a className="underline" href="tel:7017287836">7017287836</a></p>
+            <p><strong>Phone:</strong> <a className="underline" href="tel:+917017287836">+917017287836</a></p>
+            <p><strong>Whatsapp:</strong> <a className="underline" href="https://wa.me/+917017287836">Let's Chat!!</a></p>
             <a
               className="inline-flex items-center gap-2 text-pink-600 underline underline-offset-4 hover:text-pink-700 dark:text-indigo-300 dark:hover:text-indigo-200"
               href="https://www.linkedin.com/"
@@ -71,7 +93,7 @@ export default function ContactSection() {
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
             <p className="text-muted-foreground">
-              {"Fully responsive with smooth scroll and parallax. Dark mode renders animated moonlit ocean with sakura petals."}
+              {"Hey If the form didn't work always find me active on Linkedin/Whatsapp"}
             </p>
           </div>
         </CardContent>
