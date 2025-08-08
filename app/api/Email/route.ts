@@ -24,15 +24,15 @@ export async function sendMail(name: string,message:string,email:string):Promise
   <table style="width:100%; border-collapse:collapse; margin-bottom:16px;">
     <tr>
       <td style="font-weight:bold; padding:8px; background:#fde2f3; border-radius:4px 0 0 4px; width:120px;">Name:</td>
-      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">{{name}}</td>
+      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">${name}</td>
     </tr>
     <tr>
       <td style="font-weight:bold; padding:8px; background:#fde2f3; border-radius:4px 0 0 4px;">Email:</td>
-      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">{{email}}</td>
+      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">${email}</td>
     </tr>
     <tr>
       <td style="font-weight:bold; padding:8px; background:#fde2f3; border-radius:4px 0 0 4px;">Message:</td>
-      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">{{message}}</td>
+      <td style="padding:8px; background:#fff; border-radius:0 4px 4px 0;">${message}</td>
     </tr>
   </table>
 

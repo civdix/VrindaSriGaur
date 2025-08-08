@@ -49,7 +49,7 @@ export default function ContactSection() {
     console.log("Form submitted:", data)
 
     await new Promise((r) => setTimeout(r, 800))
-    setSent(`Thanks ${data.name}! I’ll get back to you at ${data.email}.`)
+    setSent(`Thanks ${data.name}! I’ll get back to you at ${data.email}..`)
     reset()
   }
 
