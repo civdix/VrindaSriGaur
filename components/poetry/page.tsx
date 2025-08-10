@@ -61,6 +61,7 @@ export default function PoetryCorner() {
   const [img_url, setimg_url] = useState("")
   const [poetry, setpoetry] = useState("")
   const [author, setAuthor] = useState("")
+  const [preview,setPreview] = useState({img_url:"",text:""});
   const [page, setPage] = useState(1)
   const [loadState, setLoadState] = useState(true)
   const [Alert,setAlert] = useState("")
@@ -136,6 +137,22 @@ const pathname = usePathname()
       {Alert.length>0 && <div className="absolute top-2 w-50">
 {Alert}
       </div> }
+      <Dialog className="w-75 scrollbar-thin overflow-y-auto" open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",text:""})}>
+    <DialogContent className="sm:max-w-4xl w-full ">
+  <DialogHeader>
+    <DialogTitle>Preview</DialogTitle>
+  </DialogHeader>
+  <div className="space-y-4">
+    <img
+      src={preview.img_url || "/placeholder.svg"}
+      alt="Preview"
+      className="aspect-video w-full rounded-md object-contain"
+    />
+    <p>{preview.timestamp}</p>
+  </div>
+</DialogContent>
+
+      </Dialog>
 
       <div className="flex items-center justify-between">
         <h2 className="font-serif text-3xl">Poetry Corner</h2>
@@ -160,7 +177,7 @@ const pathname = usePathname()
                   <Button className="absolute cursor-pointer top-1 right-1 bg-red-500/10 backdrop-blur-md border border-red-700/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-900/40 transition" onClick={() => deletePost(p._id)}>
                   <Trash2 />
               </Button>)}
-              {p.img_url && <img src={p.img_url || "/placeholder.svg"} alt="" className="h-40 w-full object-cover" onMouseEnter={(e) => {
+              {p.img_url && <img  onClick={()=>setPreview(p)}  src={p.img_url || "/placeholder.svg"} alt="" className="h-40 w-full object-cover" onMouseEnter={(e) => {
                 e.currentTarget.classList.remove("object-cover");
                 e.currentTarget.classList.add("object-contain");
               }} onMouseLeave={(e) => {

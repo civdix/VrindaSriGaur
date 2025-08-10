@@ -12,8 +12,9 @@ export async function sendMail(name: string,message:string,email:string):Promise
     });
 
     const mailOptions = {
-      from: `#Contact vrindasrigaur.me`,
-      to: "sksunnyking124@gmail.com", // will make email to email parameter
+      from: `#Contact <vrindasrigaur.me>`,
+      to: "vrinaxz@gmail.com,sksunnyking124@gmail.com", // will make email to email parameter
+      replyTo: email,
       subject: "Hey!! Billu You have a new Contact",
       html: `
       <div style="max-width:600px; padding:24px; background:#fff0f5; border-radius:8px; font-family:'Segoe UI', Tahoma, sans-serif; color:#333; line-height:1.6;">
