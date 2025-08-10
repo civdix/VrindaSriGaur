@@ -5,7 +5,7 @@ import AboutSection from "@/components/about-section"
 import ExperienceTimeline from "@/components/experience-timeline"
 import SkillsShowcase from "@/components/skills-showcase"
 import ProjectsSection from "@/components/projects-section"
-import PoetryCorner from "@/components/poetry/poetry-corner"
+import PoetryCorner from "@/components/poetry/page"
 import AwardsSection from "@/components/awards-section"
 import ContactSection from "@/components/contact-section"
 
