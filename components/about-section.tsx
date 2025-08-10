@@ -14,8 +14,10 @@ export default function AboutSection() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <div className="absolute inset-0 rounded-3xl ring-1 ring-pink-200/50 dark:ring-indigo-300/40" aria-hidden="true" />
-        <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
+<div
+  className="absolute inset-0 rounded-3xl ring-1 ring-pink-200/50 dark:ring-indigo-300/40 pointer-events-none"
+  aria-hidden="true"
+/>        <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
           <div>
             <h2 className="font-serif text-3xl">About Me</h2>
             <p className="mt-4 text-muted-foreground">
@@ -26,12 +28,17 @@ export default function AboutSection() {
               <Badge variant="secondary">UI/UX & Branding</Badge>
               <Badge variant="secondary">Poetry & Storytelling</Badge>
               <Badge variant="secondary">Guidance & Mentorship</Badge>
+              <Badge variant="secondary">Createch Visionary</Badge>
             </div>
           </div>
           <Card>
             <CardContent className="space-y-2 p-4 text-sm">
-              <p><strong>Links:</strong> <a className="underline" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></p>
-              <p><strong>Phone:</strong> 7017287836</p>
+              <p><strong>Links:</strong> <a href="https://www.linkedin.com/in/vrinda-sri-gaur" target="_blank" rel="noreferrer">
+  <Badge variant="outline" className="cursor-pointer underline">
+    LinkedIn
+  </Badge>
+</a></p>
+              <p><strong>Phone:</strong> +917017287836</p>
               <p><strong>Email:</strong> <a className="underline" href="mailto:vrinaxz@gmail.com">vrinaxz@gmail.com</a></p>
               <p><strong>Location:</strong> India</p>
               <p className="text-muted-foreground">

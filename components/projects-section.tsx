@@ -13,6 +13,7 @@ type Project = {
   tech: string[]
   image: string
   details: string
+  link?: string
 }
 
 const projects: Project[] = [
@@ -33,7 +34,8 @@ const projects: Project[] = [
     image: "/placeholder-9ypta.png",
     details:
       "Explore, plan, and book trips with secure authentication, responsive UI, and transaction workflows.",
-  },
+  
+    },
   {
     key: "rozgarnow",
     name: "RozgarNow — Local Services",
@@ -42,7 +44,8 @@ const projects: Project[] = [
     image: "/local-services-marketplace.png",
     details:
       "Real-time matching, verified profiles, user reviews, and payment integrations for trust and scale.",
-  },
+      link: "https://rozgaar-now.vercel.app/",
+    },
 ]
 
 export default function ProjectsSection() {
@@ -64,19 +67,22 @@ export default function ProjectsSection() {
           >
             <Card className="group h-full overflow-hidden transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-xl hover:ring-1 hover:ring-pink-300/60 dark:hover:ring-indigo-400/60">
               <CardHeader className="p-0">
-                <img src={p.image || "/placeholder.svg"} alt={`${p.name} preview`} className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-              </CardHeader>
+
+                {p.link?<iframe src={p.link} className="h-40 w-full" />:<img src={p.image || "/placeholder.svg"} alt={`${p.name} preview`} className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+           }   </CardHeader>
               <CardContent className="p-4">
                 <CardTitle className="text-lg">{p.name}</CardTitle>
                 <p className="mt-1 text-sm text-muted-foreground">{p.blurb}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="my-3  flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <Badge key={t} variant="secondary">
                       {t}
                     </Badge>
                   ))}
                 </div>
+              {p.link &&  <a className="bg-gradient-to-r from-purple-600 ml-2 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:from-purple-700 hover:via-purple-600 hover:to-pink-600 transition-all duration-300 ease-in-out cursor-pointer" target="_blank" href={p.link}>Demo</a>}
               </CardContent>
+
             </Card>
           </motion.button>
         ))}

@@ -13,7 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { DeleteIcon, LucideDelete, Trash2 } from "lucide-react";
 
 type Post = {
-  id: string
+  _id: string
   title: string
   img_url?: string
   poetry: string
@@ -44,7 +44,7 @@ function savePosts(posts: Post[]) {
 
 const seed: Post[] = [
   {
-    id: "seed-1",
+    _id: "seed-1",
     title: "Moonlit Lines",
     img_url: "/moonlit-ocean-poetry.png",
     poetry:
@@ -112,7 +112,7 @@ const pathname = usePathname()
 
     if (!title.trim() || !poetry.trim()) return alert("Title and Poetry are required fields.")
     const p: Post = {
-      id: Math.random().toString(36).slice(2),
+      _id: Math.random().toString(36).slice(2),
       title: title.trim(),
       img_url: img_url.trim() || undefined,
       poetry: poetry.trim(),

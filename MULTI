@@ -23,8 +23,13 @@ const nav = [
 const MoonOceanCanvas = dynamic(() => import("./backgrounds/dark-ocean-canvas"), { ssr: false })
 
 export const metadata: Metadata = {
-  title: 'Vrinda Sri Gaur — Portfolio',
-  description: 'Where Technology Meets Poetry',
+  title: 'Vrinda Sri Gaur — AI Engineer | Poet | Business Strategist | Digital Marketing Expert',
+description: 'In the grace of darkness, here I\'ll be the light | I Am Vrinda Sri Gaur',
+icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon-192x192.png',
+  },
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })

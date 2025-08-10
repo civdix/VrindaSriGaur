@@ -48,7 +48,7 @@ export default function Page() {
       </section>
 
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
-        {'© '}{new Date().getFullYear()} {'Vrinda Sri Gaur · Where Technology Meets Poetry'}
+        {'© '}{new Date().getFullYear()} {'Vrinda Sri Gaur · Engineer & Poet'}
       </footer>
     </main>
   )
