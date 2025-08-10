@@ -156,9 +156,10 @@ const pathname = usePathname()
             transition={{ delay: i * 0.05 }}
           >
             <Card className="h-full relative overflow-hidden">
-              <Button className="absolute cursor-pointer top-1 right-1 bg-red-500/10 backdrop-blur-md border border-red-700/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-900/40 transition" onClick={() => deletePost(p._id)}>
+              {pathname === "/poetry" && (
+                  <Button className="absolute cursor-pointer top-1 right-1 bg-red-500/10 backdrop-blur-md border border-red-700/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-900/40 transition" onClick={() => deletePost(p._id)}>
                   <Trash2 />
-              </Button>
+              </Button>)}
               {p.img_url && <img src={p.img_url || "/placeholder.svg"} alt="" className="h-40 w-full object-cover" onMouseEnter={(e) => {
                 e.currentTarget.classList.remove("object-cover");
                 e.currentTarget.classList.add("object-contain");
