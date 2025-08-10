@@ -13,9 +13,9 @@ export async function sendMail(name: string,message:string,email:string):Promise
 
     const mailOptions = {
       from: `#Contact <vrindasrigaur.me>`,
-      to: "vrinaxz@gmail.com,sksunnyking124@gmail.com", // will make email to email parameter
+      to: "vrinaxz@gmail.com", // will make email to email parameter
       replyTo: email,
-      subject: "Hey!! Billu You have a new Contact",
+      subject: "Hey!! Vrinda You have a new Contact",
       html: `
       <div style="max-width:600px; padding:24px; background:#fff0f5; border-radius:8px; font-family:'Segoe UI', Tahoma, sans-serif; color:#333; line-height:1.6;">
   <h2 style="margin-top:0; color:#cc2b5e;">📬 New Contact Form Submission</h2>
