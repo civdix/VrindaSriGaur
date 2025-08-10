@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { DeleteIcon, LucideDelete, Trash2 } from "lucide-react";
+import { timeStamp } from "console";
 
 type Post = {
   _id: string
@@ -61,7 +62,7 @@ export default function PoetryCorner() {
   const [img_url, setimg_url] = useState("")
   const [poetry, setpoetry] = useState("")
   const [author, setAuthor] = useState("")
-  const [preview,setPreview] = useState({img_url:"",text:""});
+  const [preview,setPreview] = useState({img_url:"",timeStamp:""});
   const [page, setPage] = useState(1)
   const [loadState, setLoadState] = useState(true)
   const [Alert,setAlert] = useState("")
@@ -137,21 +138,17 @@ const pathname = usePathname()
       {Alert.length>0 && <div className="absolute top-2 w-50">
 {Alert}
       </div> }
-      <Dialog className="w-75 scrollbar-thin overflow-y-auto" open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",text:""})}>
-    <DialogContent className="sm:max-w-4xl w-full ">
-  <DialogHeader>
-    <DialogTitle>Preview</DialogTitle>
-  </DialogHeader>
-  <div className="space-y-4">
-    <img
-      src={preview.img_url || "/placeholder.svg"}
-      alt="Preview"
-      className="aspect-video w-full rounded-md object-contain"
-    />
-    <p>{preview.timestamp}</p>
-  </div>
-</DialogContent>
+      <Dialog  open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",timestamp:""})}>
+        <DialogContent className="sm:max-w-lg" >
+          <DialogHeader>
+            <DialogTitle>Preview</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <img src={preview.img_url || "/placeholder.svg"} alt="Preview" className="aspect-video w-full rounded-md object-contain" />
+         <p>{preview.timestamp}</p>
+          </div>
 
+        </DialogContent>
       </Dialog>
 
       <div className="flex items-center justify-between">

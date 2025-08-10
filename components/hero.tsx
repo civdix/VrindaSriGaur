@@ -58,7 +58,8 @@ export default function Hero() {
             </p>
             <motion.p className="mt-4 text-lg font-medium" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
               <span className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-Where Creativity Meets Technology              </span>
+Where Creativity Meets Technology 
+             </span>
             </motion.p>
 
             <div className="mt-6 flex items-center gap-4">
