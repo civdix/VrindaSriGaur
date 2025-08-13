@@ -44,7 +44,7 @@ const projects: Project[] = [
     image: "/local-services-marketplace.png",
     details:
       "Real-time matching, verified profiles, user reviews, and payment integrations for trust and scale.",
-      link: "https://rozgaar-now.vercel.app/",
+      link: "https://rozgaar-now.vercel.app?mode=desktop",
     },
 ]
 
