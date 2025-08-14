@@ -111,6 +111,83 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             --font-serif: ${playfair.variable};
           }
         `}</style>
+ <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.vrindasrigaur.me/#person",
+        "name": "Vrinda Sri Gaur",
+        "url": "https://www.vrindasrigaur.me",
+        "image": "https://www.vrindasrigaur.me/images/vrinda-portrait.jpg",
+        "jobTitle": [
+          "AI Engineer Intern",
+          "UI/UX Designer",
+          "E-commerce Specialist",
+          "Poet",
+          "Career & Mental Health Counselor",
+          "Part-time Chemistry Teacher"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Dr. A.P.J. Abdul Kalam Technical University (AKTU)",
+          "sameAs": "https://aktu.ac.in/"
+        },
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "name": "Bunny Creations",
+            "sameAs": "https://bunnycreations.com/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Happy Faces"
+          },
+          {
+            "@type": "Organization",
+            "name": "EydaHome"
+          }
+        ],
+        "knowsAbout": [
+          "Cybersecurity",
+          "Artificial Intelligence",
+          "UI/UX Design",
+          "E-commerce Operations",
+          "SEO",
+          "Poetry",
+          "Mentorship"
+        ],
+        "email": "mailto:vrinaxz@gmail.com",
+        "telephone": "+91-7017287836",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/vrinda-sri-gaur",
+          "https://instagram.com/@__vrindiii__",
+          "https://www.yourquote.in/vrinda-gaur-bmgmg/quotes"
+        ],
+        "award": [
+          "District-Level Gold Medalist — AI for Business (2024)",
+          "Navomesh AIdea Challenge — AI-powered E-commerce Tool (2025)"
+        ],
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "Engineer",
+            "description": "AI Engineer & Cybersecurity Enthusiast"
+          },
+          {
+            "@type": "Occupation",
+            "name": "Poet",
+            "description": "Published poet with works on YourQuote"
+          }
+        ]
+      }),
+    }}
+  />
       </head>
       <body className={`${playfair.variable} ${poppins.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
