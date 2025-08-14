@@ -22,13 +22,63 @@ const nav = [
 
 const MoonOceanCanvas = dynamic(() => import("./backgrounds/dark-ocean-canvas"), { ssr: false })
 
+
 export const metadata: Metadata = {
   title: 'Vrinda Sri Gaur — AI Engineer | Poet | Business Strategist | Digital Marketing Expert',
-description: 'In the grace of darkness, here I\'ll be the light | I Am Vrinda Sri Gaur',
-icons: {
+  description:
+    "Vrinda Sri Gaur — Createch Visionary, Tech Enthusiast & Creative Mind. B.Tech (CSE, Cybersecurity) | E-commerce Ops Pro | UI/UX Designer | Canva Graphic Designer | Published Poet | Part-time Teacher | Social Media Expert.",
+  keywords: [
+    'Vrinda Sri Gaur',
+    'Createch Visionary',
+    'Tech Enthusiast',
+    'AI Engineer',
+    'UI/UX Designer',
+    'E-commerce',
+    'Cybersecurity',
+    'Poet',
+    'Career Counselor',
+    'Social Media Expert',
+    'Portfolio',
+    'India',
+  ],
+  authors: [{ name: 'Vrinda Sri Gaur', url: 'https://www.vrindasrigaur.me' }],
+  metadataBase: new URL('https://www.vrindasrigaur.me'),
+  openGraph: {
+    type: 'website',
+    url: 'https://www.vrindasrigaur.me',
+    title: 'Vrinda Sri Gaur | Createch Visionary | Engineer & Poet',
+    description:
+      'Merging technology with creativity — B.Tech (CSE, Cybersecurity) student with experience in E-commerce Ops, UI/UX Design, Mentorship, and Published Poetry.',
+    siteName: 'Vrinda Sri Gaur',
+    images: [
+      {
+        url: 'https://www.vrindasrigaur.me/images/vrinda-portrait.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Vrinda Sri Gaur Portrait',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vrinda Sri Gaur | Createch Visionary | Engineer & Poet',
+    description:
+      'Tech + Creativity | E-commerce Ops | UI/UX Designer | Published Poet | Counselor | Social Media Expert.',
+    images: ['https://www.vrindasrigaur.me/images/vrinda-portrait.jpg'],
+  },
+  icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon-192x192.png',
+  },
+  verification: {
+    other: {
+      me: [
+        'https://linkedin.com/in/vrinda-sri-gaur',
+        'https://instagram.com/@__vrindiii__',
+        'https://www.yourquote.in/vrinda-gaur-bmgmg/quotes',
+      ],
+    },
   },
 }
 
