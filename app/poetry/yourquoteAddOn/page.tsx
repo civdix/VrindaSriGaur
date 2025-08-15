@@ -82,7 +82,7 @@ export default function YourQouteAddOn(){
                 <Button className="absolute cursor-pointer top-1 right-1 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-white/20 transition" onClick={() => importQuote(p)}>
                     Quick Import
                 </Button>
-              {p.img_url && <img src={p.img_url || "/placeholder.svg"} alt="" className="h-40 w-full object-cover" onMouseEnter={(e) => {
+              {p.img_url && <img src={p.img_url || "/placeholder.svg"} alt={p.poetry.substring(0,10)+"..."} className="h-40 w-full object-cover" onMouseEnter={(e) => {
                   e.currentTarget.classList.remove("object-cover");
                   e.currentTarget.classList.add("object-contain");
               }} onMouseLeave={(e) => {

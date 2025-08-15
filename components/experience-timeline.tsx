@@ -10,10 +10,10 @@ const items = [
     title: "AI Engineer Intern — Bunny Creations",
     period: "06/2025 – Present",
     points: [
-      "Developed AI-driven features for e-commerce platform",
+      "Being a AI Engineer I Developed AI-driven features for e-commerce platform",
       "Developed and deployed AI Agents for Automations",
       "Worked on Real State AI Agent from Customer Lead generation to Sales and Report",
-      "Assisted in Ecommerce listing for Shopify, Etsy, Alibaba, eBay, Amazon, Myntra",
+      "Business Strategist for eCommerce listings across Shopify, Etsy, Alibaba, eBay, Amazon, and Myntra",
       "Gives Consultation on Ecommerce support to multiple clients",
     ],
   },
@@ -35,6 +35,7 @@ const items = [
       "Led UI/UX, styling & customization; +25% UX & performance",
       "Managed Shopify, Etsy, Alibaba, eBay, Amazon, Myntra, Walmart, Wayfair",
       "SEO and listings optimization driving +30% traffic & sales",
+      "As a Digital Marketing Expert Scale the selling of the Company not only in India but in USA with the magic of Ads and Digital Marketing Skills"
     ],
   },
   {

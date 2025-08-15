@@ -62,7 +62,7 @@ export default function PoetryCorner() {
   const [img_url, setimg_url] = useState("")
   const [poetry, setpoetry] = useState("")
   const [author, setAuthor] = useState("")
-  const [preview,setPreview] = useState({img_url:"",timeStamp:""});
+  const [preview,setPreview] = useState<Post>({poetry:"",timestamp:"",title:"",img_url:"",_id:"",author:"",createdAt:Date.now()})
   const [page, setPage] = useState(1)
   const [loadState, setLoadState] = useState(true)
   const [Alert,setAlert] = useState("")
@@ -138,13 +138,13 @@ const pathname = usePathname()
       {Alert.length>0 && <div className="absolute top-2 w-50">
 {Alert}
       </div> }
-      <Dialog  open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",timestamp:""})}>
+      <Dialog  open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",timestamp:"",poetry:""})}>
         <DialogContent className="sm:max-w-lg" >
           <DialogHeader>
             <DialogTitle>Preview</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <img src={preview.img_url || "/placeholder.svg"} alt="Preview" className="aspect-video w-full rounded-md object-contain" />
+            <img src={preview.img_url || "/placeholder.svg"} alt={"Preview"+preview.poetry.substring(0,10)+"..." } className="aspect-video w-full rounded-md object-contain" />
          <p>{preview.timestamp}</p>
           </div>
 
@@ -174,7 +174,7 @@ const pathname = usePathname()
                   <Button className="absolute cursor-pointer top-1 right-1 bg-red-500/10 backdrop-blur-md border border-red-700/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-900/40 transition" onClick={() => deletePost(p._id)}>
                   <Trash2 />
               </Button>)}
-              {p.img_url && <img  onClick={()=>setPreview(p)}  src={p.img_url || "/placeholder.svg"} alt="" className="h-40 w-full object-cover" onMouseEnter={(e) => {
+              {p.img_url && <img  onClick={()=>setPreview({p})}  src={p.img_url || "/placeholder.svg"} alt={p.poetry.substring(0,10)+"..."} className="h-40 w-full object-cover" onMouseEnter={(e) => {
                 e.currentTarget.classList.remove("object-cover");
                 e.currentTarget.classList.add("object-contain");
               }} onMouseLeave={(e) => {
@@ -189,7 +189,7 @@ const pathname = usePathname()
                   {p.poetry}
                 </pre>
                 <p className="mt-3 text-xs text-muted-foreground">
-                  {!p.timestamp.includes(" ") ? new Date(p.createdAt).toLocaleString() : p.timestamp}
+                  {!p.timestamp?.includes(" ") ? new Date(p.createdAt).toLocaleString() : p.timestamp}
                 </p>
               </CardContent>
             </Card>

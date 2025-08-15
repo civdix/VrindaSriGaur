@@ -51,8 +51,8 @@ export default function Hero() {
         <motion.div style={{ y }} className="grid w-full gap-10 md:grid-cols-2">
           {/* Left */}
           <div className="flex flex-col justify-center">
-            <p className="text-sm uppercase tracking-widest text-muted-foreground">{"I'M DREAMING OF A"}</p>
-            <h1 className="font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">Createch Visionary</h1>
+            <p className="text-sm uppercase tracking-widest text-muted-foreground">{"I'M DREAMING OF"}</p>
+            <h1 className="font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">A Createch Visionary</h1>
             <p className="mt-4 text-balance text-muted-foreground">
               Tech Enthusiast & Creative Mind | B-Tech Pursuing | E-commerce Listing Pro | Canva Graphic Designer | Published Poet | Part-time Chemistry Teacher | Social Media Expert | Guidance Counselor
             </p>
