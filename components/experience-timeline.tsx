@@ -9,6 +9,7 @@ const items = [
     icon: Briefcase,
     title: "AI Engineer Intern — Bunny Creations",
     period: "06/2025 – Present",
+    link:"https://bunnycreations.co.in/",
     points: [
       "Being a AI Engineer I Developed AI-driven features for e-commerce platform",
       "Developed and deployed AI Agents for Automations",
@@ -21,6 +22,7 @@ const items = [
     icon: Briefcase,
     title: "Career & Mental Health Counsellor — Happy Faces",
     period: "01/2024 – Present",
+    link:"https://happyfaces.com",
     points: [
       "Collaborated with dev and UX teams to apply emotional design",
       "Guided 50+ students/professionals on career & stress management",
@@ -29,8 +31,9 @@ const items = [
   },
   {
     icon: Palette,
-    title: "UI/UX Designer & E‑Commerce — EydaHome",
+    title: "UI/UX Designer & Digital Marketing Expert — EydaHome",
     period: "09/2022 – 08/2023",
+    link:"https://eydahomes.com/",
     points: [
       "Led UI/UX, styling & customization; +25% UX & performance",
       "Managed Shopify, Etsy, Alibaba, eBay, Amazon, Myntra, Walmart, Wayfair",
@@ -42,6 +45,7 @@ const items = [
     icon: BookOpenText,
     title: "Computer Science Tutor — Hub Of Mentors/Freelance",
     period: "03/2021 – 08/2022",
+    link:"#",
     points: [
       "Taught Python, DSA, OOPs (Grades 9–12, boards & prep)",
       "Mentored 80+ learners on tech opportunities and skill paths",
@@ -50,6 +54,7 @@ const items = [
   {
     icon: GraduationCap,
     title: "B.Tech (CSE, Cybersecurity) — AKTU",
+    link:"#",
     period: "2022 – 2026",
     points: ["Honours program, GPA 8+; focus on security & systems"],
   },
@@ -85,6 +90,8 @@ export default function ExperienceTimeline() {
                     ))}
                   </ul>
                 </div>
+         <a className='bg-card text-card-foreground rounded-xl border px-2 py-1 shadow-sm group border-l-4 border-l-pink-300 dark:border-l-indigo-400 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-xl hover:ring-1 hover:ring-pink-300/60 dark:hover:ring-indigo-400/60' href={it.link?it.link:"#"}>Link</a>
+
               </CardContent>
             </Card>
           </motion.div>

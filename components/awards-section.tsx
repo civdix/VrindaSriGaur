@@ -9,6 +9,7 @@ const awards = [
   {
     icon: Medal,
     title: "District-Level Gold Medalist — AI for Business",
+    link:"#",
     date: "12/2024",
     desc: "Awarded for an AI-powered startup plan streamlining e-commerce by Oneclick.",
   },
@@ -50,6 +51,7 @@ export default function AwardsSection() {
                 <Badge variant="outline">{a.date}</Badge>
                 <p className="text-sm text-muted-foreground">{a.desc}</p>
               </CardContent>
+         <a  className='bg-card ml-2 w-fit text-card-foreground rounded-xl border px-2 py-1 shadow-sm group border-l-4 border-l-pink-300 dark:border-l-indigo-400 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-xl hover:ring-1 hover:ring-pink-300/60 dark:hover:ring-indigo-400/60' href={a.link?a.link:"#"}>Link</a>
             </Card>
           </motion.div>
         ))}
