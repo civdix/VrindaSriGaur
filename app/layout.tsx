@@ -6,9 +6,9 @@ import './globals.css'
 import { SimpleThemeProvider } from '@/components/simple-theme'
 
 export const metadata: Metadata = {
-  title: 'Vrinda Sri Gaur — AI Engineer | Poet | Business Strategist | Digital Marketing Expert',
+  title: 'Vrinda Sri Gaur — AI Engineer | Poet | Digital Marketing Expert',
   description:
-    "Vrinda Sri Gaur — Createch Visionary, Tech Enthusiast & Creative Mind. B.Tech (CSE, Cybersecurity) | E-commerce Ops Pro | UI/UX Designer | Canva Graphic Designer | Published Poet | Part-time Teacher | Social Media Expert.",
+    "Vrinda Sri Gaur — Createch Visionary, Tech Enthusiast & Creative Mind. B.Tech (CSE, Cybersecurity) | E-commerce Ops Pro | UI/UX Designer | Published Poet | Teacher | Social Media Expert.",
   keywords: [
     'Vrinda Sri Gaur',
     'Createch Visionary',
@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     'Social Media Expert',
     'Portfolio',
     'India',
+    'IT Women',
+    'Vrinda Sri Gaur'
   ],
   authors: [{ name: 'Vrinda Sri Gaur', url: 'https://www.vrindasrigaur.me' }],
   metadataBase: new URL('https://www.vrindasrigaur.me'),
