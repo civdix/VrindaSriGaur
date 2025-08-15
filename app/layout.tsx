@@ -77,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="7ZktNpEtOhm6W3w6K3hMLhbOvHU-h3nxGPJ_GavWD8k" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
