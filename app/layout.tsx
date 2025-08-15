@@ -8,7 +8,7 @@ import { SimpleThemeProvider } from '@/components/simple-theme'
 export const metadata: Metadata = {
   title: 'Vrinda Sri Gaur — AI Engineer | Poet | Digital Marketing Expert',
   description:
-    "Vrinda Sri Gaur — Tech Visionary & Creative Mind | B.Tech CSE (Cybersecurity) | E-commerce Ops Strategist | UI/UX Designer | Social Media Expert | Published Poet & Educator",
+    "Vrinda Gaur — Tech Visionary & Creative Mind | B.Tech CSE (Cybersecurity) | E-commerce Ops Strategist | UI/UX Designer | Social Media Expert | Published Poet & Educator",
   keywords: [
     'Vrinda Sri Gaur',
     'Createch Visionary',
