@@ -9,9 +9,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
+interface Post{
+  title:string;
+  link:string;
+  poetry:string;
+  id:string;
+  img_url:string;
+  timestamp:string | Date;
+  createdAt:string | Date;
+}
 
 export default function YourQouteAddOn(){
-    const [sorted,setSorted] = useState([])
+    const [sorted,setSorted] = useState<Post[]>([])
     const [Alert,setAlert] = useState("")
     const [page,setPage] = useState(1)
     const loadYourQuote10 = async (page:number) => {
@@ -31,7 +40,7 @@ export default function YourQouteAddOn(){
       loadYourQuote10(page)
     },[page])
 
-    const importQuote =async(p)=>{
+    const importQuote =async(p:Post)=>{
         const respo = await fetch('/api/Post/yourquote/0', {
             method: 'POST',
             headers: {
@@ -72,7 +81,7 @@ export default function YourQouteAddOn(){
         {sorted.map((p, i) => (
           <motion.article
           key={p.id}
-            className="group"s
+            className="group"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -100,7 +109,7 @@ export default function YourQouteAddOn(){
                 <div className='flex justify-between'>
 
                 <p className="mt-3 text-xs text-muted-foreground">
-                  {!p.timestamp.includes(" ") ? new Date(p.createdAt).toLocaleString() : p.timestamp}
+                  {!p.timestamp.includes(" ") ? String(new Date(p.createdAt).toLocaleString()) : String(p.timestamp)}
                 </p>
                   <a href={p.link} target="_blank" rel="noopener noreferrer" className='bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:from-purple-700 hover:via-purple-600 hover:to-pink-600 transition-all duration-300 ease-in-out cursor-pointer'>View on YourQuote</a>
                 </div>

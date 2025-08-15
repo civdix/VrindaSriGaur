@@ -38,8 +38,8 @@ export default function AboutSection() {
     LinkedIn
   </Badge>
 </a></p>
-              <p><strong>Phone:</strong> +917017287836</p>
-              <p><strong>Email:</strong> <a className="underline" href="mailto:vrinaxz@gmail.com">vrinaxz@gmail.com</a></p>
+              <p><strong>Mobile:</strong> +917017287836</p>
+              <p><strong>Mail:</strong> <a className="underline" href="mailto:vrinaxz@gmail.com">vrinaxz@gmail.com</a></p>
               <p><strong>Location:</strong> India</p>
               <p className="text-muted-foreground">
                 {"Languages: English, Hindi — professional proficiency or above"}
