@@ -71,6 +71,10 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon-192x192.png',
   },
+alternates: {
+  canonical: 'https://www.vrindasrigaur.me',
+},
+
   verification: {
     other: {
       me: [
