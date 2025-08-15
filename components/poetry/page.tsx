@@ -62,7 +62,7 @@ export default function PoetryCorner() {
   const [img_url, setimg_url] = useState("")
   const [poetry, setpoetry] = useState("")
   const [author, setAuthor] = useState("")
-  const [preview,setPreview] = useState<Post>({poetry:"",timestamp:"",title:"",img_url:"",_id:"",author:"",createdAt:Date.now()})
+  const [preview,setPreview] = useState<Post>({id:"",poetry:"",timestamp:"",title:"",img_url:"",_id:"",author:"",createdAt:Date.now()})
   const [page, setPage] = useState(1)
   const [loadState, setLoadState] = useState(true)
   const [Alert,setAlert] = useState("")
@@ -138,18 +138,38 @@ const pathname = usePathname()
       {Alert.length>0 && <div className="absolute top-2 w-50">
 {Alert}
       </div> }
-      <Dialog  open={preview.img_url.length>0} onOpenChange={() => setPreview({img_url:"",timestamp:"",poetry:""})}>
-        <DialogContent className="sm:max-w-lg" >
-          <DialogHeader>
-            <DialogTitle>Preview</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <img src={preview.img_url || "/placeholder.svg"} alt={"Preview"+preview.poetry.substring(0,10)+"..." } className="aspect-video w-full rounded-md object-contain" />
-         <p>{preview.timestamp}</p>
-          </div>
+<Dialog
+  open={preview?.img_url?.length || false}
+  onOpenChange={() =>
+    setPreview({
+      img_url: "",
+      timestamp: "",
+      poetry: "",
+      _id: "",
+      author: "",
+      createdAt: Date.now(),
+      title: "",
+    })
+  }
+>
+  <DialogContent className="w-[75vw] h-[90vh] max-w-none p-4 flex flex-col">
+    <DialogHeader>
+      <DialogTitle>Preview</DialogTitle>
+    </DialogHeader>
 
-        </DialogContent>
-      </Dialog>
+    {/* Main content should expand */}
+    <div className="flex-1 flex flex-col items-center justify-center space-y-4 w-full">
+      <img
+        src={preview.img_url || "/placeholder.svg"}
+        alt={"Preview " + preview.poetry.substring(0, 10) + "..."}
+        className="w-full h-full max-h-[80vh] object-contain rounded-md"
+      />
+      <p>{preview.timestamp}</p>
+    </div>
+  </DialogContent>
+</Dialog>
+
+
 
       <div className="flex items-center justify-between">
         <h2 className="font-serif text-3xl">Poetry Corner</h2>
@@ -174,7 +194,7 @@ const pathname = usePathname()
                   <Button className="absolute cursor-pointer top-1 right-1 bg-red-500/10 backdrop-blur-md border border-red-700/20 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-900/40 transition" onClick={() => deletePost(p._id)}>
                   <Trash2 />
               </Button>)}
-              {p.img_url && <img  onClick={()=>setPreview({p})}  src={p.img_url || "/placeholder.svg"} alt={p.poetry.substring(0,10)+"..."} className="h-40 w-full object-cover" onMouseEnter={(e) => {
+              {p.img_url && <img  onClick={()=>setPreview(p)}  src={p.img_url || "/placeholder.svg"} alt={p.poetry.substring(0,10)+"..."} className="h-40 w-full object-cover" onMouseEnter={(e) => {
                 e.currentTarget.classList.remove("object-cover");
                 e.currentTarget.classList.add("object-contain");
               }} onMouseLeave={(e) => {
