@@ -3,25 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Playfair_Display, Poppins } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Button from '@/components/ui/button'
-import { Sun, Moon, Menu } from 'lucide-react'
-import Sheet from '@/components/ui/sheet'
-import SheetTrigger from '@/components/ui/sheet-trigger'
-import SheetContent from '@/components/ui/sheet-content'
-import dynamic from 'next/dynamic'
-
-const nav = [
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
-
-const MoonOceanCanvas = dynamic(() => import("./backgrounds/dark-ocean-canvas"), { ssr: false })
-
+import { SimpleThemeProvider } from '@/components/simple-theme'
 
 export const metadata: Metadata = {
   title: 'Vrinda Sri Gaur — AI Engineer | Poet | Business Strategist | Digital Marketing Expert',
@@ -93,29 +75,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
-        {/* Prevent theme flash and ensure html.dark is set ASAP */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
             (function() {
               try {
                 var t = localStorage.getItem('theme');
-                var d = t ? (t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) : true;
-                if (d) document.documentElement.classList.add('dark');
-              } catch (e) {}
+                var isDark = t ? t === 'dark' : true;
+                if (isDark) document.documentElement.classList.add('dark');
+              } catch(e) {}
             })();
           `,
           }}
         />
         <style>{`
-          html {
-            font-family: ${GeistSans.style.fontFamily};
-            --font-sans: ${poppins.variable};
-            --font-mono: ${GeistMono.variable};
-            --font-serif: ${playfair.variable};
-          }
+html {
+  font-family: ${GeistSans.style.fontFamily};
+  --font-sans: ${poppins.variable};
+  --font-mono: ${GeistMono.variable};
+  --font-serif: ${playfair.variable};
+}
         `}</style>
- <script
+<script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
       __html: JSON.stringify({
@@ -192,11 +173,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }),
     }}
   />
+
       </head>
       <body className={`${playfair.variable} ${poppins.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <SimpleThemeProvider>
           {children}
-        </ThemeProvider>
+        </SimpleThemeProvider>
       </body>
     </html>
   )
