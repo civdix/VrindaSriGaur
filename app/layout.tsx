@@ -3,12 +3,87 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Playfair_Display, Poppins } from 'next/font/google'
 import './globals.css'
-import { SimpleThemeProvider } from '@/components/simple-theme'
+import { ThemeProvider } from '@/components/theme-provider'
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Button from '@/components/ui/button'
+import { Sun, Moon, Menu } from 'lucide-react'
+import Sheet from '@/components/ui/sheet'
+import SheetTrigger from '@/components/ui/sheet-trigger'
+import SheetContent from '@/components/ui/sheet-content'
+import dynamic from 'next/dynamic'
+
+const nav = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+]
+
+const MoonOceanCanvas = dynamic(() => import("./backgrounds/dark-ocean-canvas"), { ssr: false })
+
 
 export const metadata: Metadata = {
-  title: 'Vrinda Sri Gaur — Portfolio',
-  description: 'Where Technology Meets Poetry',
-    generator: 'v0.dev'
+  title: 'Vrinda Sri Gaur — AI Engineer | Poet | Business Strategist | Digital Marketing Expert',
+  description:
+    "Vrinda Sri Gaur — Createch Visionary, Tech Enthusiast & Creative Mind. B.Tech (CSE, Cybersecurity) | E-commerce Ops Pro | UI/UX Designer | Canva Graphic Designer | Published Poet | Part-time Teacher | Social Media Expert.",
+  keywords: [
+    'Vrinda Sri Gaur',
+    'Createch Visionary',
+    'Tech Enthusiast',
+    'AI Engineer',
+    'UI/UX Designer',
+    'E-commerce',
+    'Cybersecurity',
+    'Poet',
+    'Career Counselor',
+    'Social Media Expert',
+    'Portfolio',
+    'India',
+  ],
+  authors: [{ name: 'Vrinda Sri Gaur', url: 'https://www.vrindasrigaur.me' }],
+  metadataBase: new URL('https://www.vrindasrigaur.me'),
+  openGraph: {
+    type: 'website',
+    url: 'https://www.vrindasrigaur.me',
+    title: 'Vrinda Sri Gaur | Createch Visionary | Engineer & Poet',
+    description:
+      'Merging technology with creativity — B.Tech (CSE, Cybersecurity) student with experience in E-commerce Ops, UI/UX Design, Mentorship, and Published Poetry.',
+    siteName: 'Vrinda Sri Gaur',
+    images: [
+      {
+        url: 'https://www.vrindasrigaur.me/images/vrinda-portrait.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Vrinda Sri Gaur Portrait',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vrinda Sri Gaur | Createch Visionary | Engineer & Poet',
+    description:
+      'Tech + Creativity | E-commerce Ops | UI/UX Designer | Published Poet | Counselor | Social Media Expert.',
+    images: ['https://www.vrindasrigaur.me/images/vrinda-portrait.jpg'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon-192x192.png',
+  },
+alternates: {
+  canonical: 'https://www.vrindasrigaur.me',
+},
+
+  verification: {
+    other: {
+      me: [
+        'https://linkedin.com/in/vrinda-sri-gaur',
+        'https://instagram.com/@__vrindiii__',
+        'https://www.yourquote.in/vrinda-gaur-bmgmg/quotes',
+      ],
+    },
+  },
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
@@ -18,33 +93,191 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
+        {/* Prevent theme flash and ensure html.dark is set ASAP */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
             (function() {
               try {
                 var t = localStorage.getItem('theme');
-                var isDark = t ? t === 'dark' : true;
-                if (isDark) document.documentElement.classList.add('dark');
-              } catch(e) {}
+                var d = t ? (t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) : true;
+                if (d) document.documentElement.classList.add('dark');
+              } catch (e) {}
             })();
           `,
           }}
         />
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${poppins.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-serif: ${playfair.variable};
-}
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${poppins.variable};
+            --font-mono: ${GeistMono.variable};
+            --font-serif: ${playfair.variable};
+          }
         `}</style>
+ <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.vrindasrigaur.me/#person",
+        "name": "Vrinda Sri Gaur",
+        "url": "https://www.vrindasrigaur.me",
+        "image": "https://www.vrindasrigaur.me/images/vrinda-portrait.jpg",
+        "jobTitle": [
+          "AI Engineer Intern",
+          "UI/UX Designer",
+          "E-commerce Specialist",
+          "Poet",
+          "Career & Mental Health Counselor",
+          "Part-time Chemistry Teacher"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Dr. A.P.J. Abdul Kalam Technical University (AKTU)",
+          "sameAs": "https://aktu.ac.in/"
+        },
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "name": "Bunny Creations",
+            "sameAs": "https://bunnycreations.com/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Happy Faces"
+          },
+          {
+            "@type": "Organization",
+            "name": "EydaHome"
+          }
+        ],
+        "knowsAbout": [
+          "Cybersecurity",
+          "Artificial Intelligence",
+          "UI/UX Design",
+          "E-commerce Operations",
+          "SEO",
+          "Poetry",
+          "Mentorship"
+        ],
+        "email": "mailto:vrinaxz@gmail.com",
+        "telephone": "+91-7017287836",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/vrinda-sri-gaur",
+          "https://instagram.com/@__vrindiii__",
+          "https://www.yourquote.in/vrinda-gaur-bmgmg/quotes"
+        ],
+        "award": [
+          "District-Level Gold Medalist — AI for Business (2024)",
+          "Navomesh AIdea Challenge — AI-powered E-commerce Tool (2025)"
+        ],
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "Engineer",
+            "description": "AI Engineer & Cybersecurity Enthusiast"
+          },
+          {
+            "@type": "Occupation",
+            "name": "Poet",
+            "description": "Published poet with works on YourQuote"
+          }
+        ]
+      }),
+    }}
+  />
       </head>
       <body className={`${playfair.variable} ${poppins.variable} font-sans`}>
-        <SimpleThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
-        </SimpleThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
+  )
+}
+
+export function SiteHeader() {
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  function applyHtmlClass(next: 'light' | 'dark' | 'system') {
+    try {
+      const root = document.documentElement
+      const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const isDark = next === 'dark' || (next === 'system' && preferDark)
+      root.classList.toggle('dark', isDark)
+      localStorage.setItem('theme', next)
+    } catch {}
+  }
+
+  const isDark = mounted ? resolvedTheme === 'dark' : true
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+        <Link href="#hero" className="group inline-flex items-center gap-2">
+          <Menu className="h-5 w-5 text-pink-500 transition-transform group-hover:-rotate-12" />
+          <span className="font-serif text-lg font-bold">Vrinda Sri Gaur</span>
+        </Link>
+
+        <nav className="hidden items-center gap-6 md:flex">
+          {nav.map((n) => (
+            <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-foreground">
+              {n.label}
+            </a>
+          ))}
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Toggle theme"
+            aria-pressed={isDark}
+            onClick={() => {
+              const next = isDark ? 'light' : 'dark'
+              setTheme(next)
+              applyHtmlClass(next)
+            }}
+          >
+            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+        </nav>
+
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="flex flex-col gap-4">
+              <div className="mt-8 flex flex-col gap-4">
+                {nav.map((n) => (
+                  <a key={n.href} href={n.href} className="text-base" aria-label={`Go to ${n.label}`}>
+                    {n.label}
+                  </a>
+                ))}
+                <Button
+                  variant="secondary"
+                  className="mt-2"
+                  onClick={() => {
+                    const next = isDark ? 'light' : 'dark'
+                    setTheme(next)
+                    applyHtmlClass(next)
+                  }}
+                >
+                  {isDark ? 'Light mode' : 'Dark mode'}
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
   )
 }
