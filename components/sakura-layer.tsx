@@ -30,7 +30,7 @@ export default function SakuraLayer({ count = 28, lightModeBoost = false, classN
         <motion.img
           key={p.id}
           src="/images/sakura-petal.png"
-          alt=""
+          alt="Sakura Petal Background Effect"
           aria-hidden="true"
           style={{
             left: `${p.left}%`,

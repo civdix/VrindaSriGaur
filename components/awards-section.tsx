@@ -43,7 +43,7 @@ export default function AwardsSection() {
             <Card className="h-full">
               <CardHeader className="flex flex-row items-center gap-3">
                 <div className="rounded-md bg-pink-100 p-2 text-pink-600 dark:bg-indigo-900/50 dark:text-indigo-200">
-                  <a.icon className="h-5 w-5" />
+                  <a.icon role='image' aria-label={a.title.substring(0,10)+"..."} className="h-5 w-5" />
                 </div>
                 <CardTitle className="text-base">{a.title}</CardTitle>
               </CardHeader>

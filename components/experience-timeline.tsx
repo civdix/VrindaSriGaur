@@ -77,7 +77,7 @@ export default function ExperienceTimeline() {
             <Card className="group border-l-4 border-l-pink-300 dark:border-l-indigo-400 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-xl hover:ring-1 hover:ring-pink-300/60 dark:hover:ring-indigo-400/60">
               <CardContent className="grid gap-3 p-6 md:grid-cols-[auto_1fr]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-100 text-pink-700 transition-colors dark:bg-indigo-900/50 dark:text-indigo-200 group-hover:bg-pink-200 group-hover:dark:bg-indigo-800/60">
-                  <it.icon className="h-6 w-6" />
+                  <it.icon role='image' aria-label={it.title.substring(0,10)+"..."} className="h-6 w-6" />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
