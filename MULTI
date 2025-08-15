@@ -278,42 +278,4 @@ export function SiteHeader() {
   )
 }
 
-import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
 
-const HeroPoem = dynamic(() => import('@/components/hero-poem'), { ssr: false })
-
-export default function Hero() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-
-  const isDark = mounted ? resolvedTheme === 'dark' : true
-
-  return (
-    <section className="relative flex h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        {mounted && isDark ? (
-          <MoonOceanCanvas />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-pink-50 via-rose-50 to-amber-50" />
-        )}
-      </div>
-      <motion.figure
-        className="relative mx-auto max-w-3xl px-4 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="absolute inset-0 bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/30" />
-        <div className="absolute inset-0 bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/30" />
-        <div className="absolute inset-0 bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/30" />
-        <div className="absolute inset-0 bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/30" />
-        <div className="absolute inset-0 bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/30" />
-        <HeroPoem />
-      </motion.figure>
-    </section>
-  )
-}
