@@ -35,7 +35,7 @@ const items = [
       "Led UI/UX, styling & customization; +25% UX & performance",
       "Managed Shopify, Etsy, Alibaba, eBay, Amazon, Myntra, Walmart, Wayfair",
       "SEO and listings optimization driving +30% traffic & sales",
-      "As a Digital Marketing Expert Scale the selling of the Company not only in India but in USA with the magic of Ads and Digital Marketing Skills"
+      "As a Digital Marketing Expert Scale the Sell of the Company not only in India but in USA"
     ],
   },
   {
